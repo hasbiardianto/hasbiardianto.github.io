@@ -5,24 +5,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Style -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class=" h-screen flex items-center justify-center ">
-        <div class="container">    
-            <h1 class="text-2xl text-center  mb-1">Hi! i am 👋</h1>
-            <h1 class="text-2xl font-bold text-center">Hasbi Ardianto Pratama</h1>
-            <h2 class="text-2 text-center mb-4">Under Graduate Computer Science</h2>
-            <div class="container flex items-center justify-center ">    
-                <img class=" object-scale h-40 w-40" src="assets/image/avatar.png" alt="">
-            </div>
-            <h2 class="text-2sm text-center mt-4 mb-2">Reach Me !</h2>
-            <div class="container flex items-center justify-center gap-3 mt-3">
-                <button class="bg-red-500 text-white py-1 px-2 rounded outline-8  hover:bg-white hover:text-red-500 "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></button>
-                <button class="bg-red-500 text-white py-1 px-2 rounded outline-8 hover:bg-white hover:text-red-500 "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></button>
-                <button class="bg-red-500 text-white py-1 px-2 rounded outline-8 hover:bg-white hover:text-red-500 "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></button>
+     <!-- Navbar -->
+     <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
+        <div class="container">
+            <div class="flex items-center justify-between relative">
+                <div class="px-4">
+                    <a href="#home" class="font-bold text-lg text-sky-600 block py-6">Hasbi Ardianto</a>
+                </div>
+                <div class="flex items-center px-4">
+                    <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
+                        <span class="w-[30px] h-[2px] my-[8px] block bg-black transition duration-300 ease-in-out origin-top-left"></span>
+                        <span class="w-[30px] h-[2px] my-[5px] block bg-black transition duration-300 ease-in-out"></span>
+                        <span class="w-[30px] h-[2px] my-[8px] block bg-black transition duration-300 ease-in-out origin-top-left"></span>
+                    </button>
+
+                    <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
+                        <ul class="block lg:flex">
+                            <li class="group ">
+                                <a href="#" class="text-base text-black py-2 flex mx-8 group-hover:text-blue-500">Home</a>
+                            </li>
+                            <li class="group ">
+                                <a href="#" class="text-base text-black py-2 flex mx-8 group-hover:text-blue-500">About</a>
+                            </li>
+                            <li class="group ">
+                                <a href="#" class="text-base text-black py-2 flex mx-8 group-hover:text-blue-500">Project</a>
+                            </li>
+                            <li class="group ">
+                                <a href="#" class="text-base text-black py-2 flex mx-8 group-hover:text-blue-500">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
+    </header>
+    <!-- Navabar End -->
+
+    <!-- Main Section Start-->
+    <div class="h-screen flex flex-col items-center justify-center md:grid md:grid-cols-2">
+        <div class="container mt-16 p-5 md:m-5 md:ml-14">    
+            <h3 class="text-2xl text-center mb-1 md:text-left md:text-4xl md:m-2">Hi ! 👋 i am </h1>
+            <h1 class="text-3xl font-bold text-center m-2 md:text-left md:text-6xl md:m-2">Hasbi Ardianto Pratama</h1>
+            <h3 class="text-xl text-center mb-4 md:text-2xl md:text-left md:m-3">Under Graduate Computer Science</h2>
+        </div>
+        <div class="container flex md:grid items-center justify-center">    
+            <img class="object-scale h-40 w-40 md:h-80 md:w-80" src="assets/image/avatar.png" alt="">
+        </div>
     </div>
+    <!-- Main Section End -->
+    <script src="script.js"></script>
 </body>
 </html>
