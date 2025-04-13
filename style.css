@@ -1,0 +1,61 @@
+:root {
+    font-family: 'Lato', sans-serif;
+    --primary-color: #185a6e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.jumbotron {
+    height: 50svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.jumbotron h1 {
+    font-size: 30px;
+    color: #333;
+}
+
+.jumbotron p {
+    font-size: 18px;
+    color: #333;
+    margin: 0 0 20px;
+}
+
+.container-menu {
+    display: flex;
+    gap: 5px;
+}
+
+.main-button {
+    min-width: 75px;
+    color: #f4f4f4;
+    font-size: 15px;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5q;
+    background-color: var(--primary-color);
+}
+
+.main-button:hover {
+    background-color: #f4f4f4;
+    color: var(--primary-color);
+    transition: 0.3s;
+}
