@@ -1,4 +1,4 @@
 ---
-title: Hasbi Ardianto Blog
+title: Blog
 ---
-# Hello
+# Hai ✨
