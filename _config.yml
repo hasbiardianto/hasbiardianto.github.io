@@ -1,3 +1,5 @@
 theme: jekyll-theme-hacker
 description: This is where I share cool stuff about my life
-author: hasbia
+author: hasbi
+show_downloads: false
+google_analytics:
