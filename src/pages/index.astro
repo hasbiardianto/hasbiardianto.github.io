@@ -6,11 +6,30 @@ console.log('This runs in your terminal, not the browser!');
 <html>
     <BaseHead/>    
     <body>
-        <h1>Hasbi Ardianto</h1>
+        <section class="hero">
+            <div class="container">
+                <h1>Hasbi Ardianto Pratama</h1>
+                <p>A passionate person who focuses on software development, AI exploration, and technology education.</p>
+            </div>
+        </section>
     </body>
 </html>
 <style>
-h1 {
-    color: rgb(185, 121, 2);
-}
+    .hero {
+        display: flex;
+        height: 100vh;
+    }
+    .container {
+        max-width: 700px;
+        margin: auto;
+        text-align: center;
+    }
+    h1 {
+        font-weight: 500;
+        color: rgb(70, 63, 50)
+    }
+    p {
+        font-size: 1.2rem;
+        color: rgb(70, 63, 50);
+    }
 </style>
