@@ -1,0 +1,116 @@
+---
+
+---
+<div class="navbar">
+    <nav>
+        <ul>
+            
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </nav>
+    <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</div>
+<style>
+    .navbar {
+        position: sticky;
+        top: 0;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 0;
+    }
+    li::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background-color: rgb(70, 63, 50);
+        transition: width 0.3s ease;
+    }
+    li:hover::after {
+        width: 100%;
+    }
+    a {
+        color: rgb(70, 63, 50);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+        cursor: pointer;
+    }
+    .line {
+        width: 40px;
+        height: 5px;
+        background-color: rgb(70, 63, 50);
+    }
+    @media (max-width: 768px) {
+        nav {
+            display: flex;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 60%;
+            background-color: white;
+            border: 1px solid rgb(70, 63, 50);
+            border-radius: 5px;
+            padding: 20px 0;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            /* z-index: 1; */
+        }
+        nav.active {
+            transform: translateX(0);
+        }
+        ul {
+            flex-direction: column;
+            gap: 10px;
+        }
+        li {
+            padding: 10px 20px;
+        }
+        .hamburger {
+            position: absolute;
+            display: flex;
+            margin: 20px;
+        }
+        .hamburger.active .line:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 8px);
+        }
+        .hamburger.active .line:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .line:nth-child(3) {
+            transform: rotate(-45deg) translate(10px, -8px);
+        }
+        .line {
+            transition: all 0.3s ease;
+        }
+    }
+</style>
+<script>
+const hamburger: Element | null = document.querySelector('.hamburger');
+const nav: Element | null = document.querySelector('nav');
+
+if (hamburger && nav) {
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+} 
+
+</script>

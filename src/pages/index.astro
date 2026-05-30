@@ -1,11 +1,13 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Navbar from "../components/Navbar.astro";
 
 console.log('This runs in your terminal, not the browser!');
 ---
 <html>
     <BaseHead/>    
     <body>
+        <Navbar/>
         <section class="hero">
             <div class="container">
                 <h1>Hasbi Ardianto Pratama</h1>
@@ -22,11 +24,33 @@ console.log('This runs in your terminal, not the browser!');
     .container {
         max-width: 700px;
         margin: auto;
-        text-align: center;
+        padding: 0 20px;
     }
     h1 {
+        text-align: center;
         font-weight: 500;
         color: rgb(70, 63, 50)
+    }
+    p {
+        text-align: center;
+        margin-top: 10px;
+        color: rgb(70, 63, 50);
+    }
+    ul {
+        list-style: none;
+    }
+    li {
+        border: 1px solid rgb(70, 63, 50);
+        border-radius: 5px;
+        background-color: #fefefe;
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px 0;
+    }
+    a {
+        color: rgb(70, 63, 50);
+        text-decoration: none;
+        font-weight: 500;
     }
     p {
         font-size: 1.2rem;
