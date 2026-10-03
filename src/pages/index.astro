@@ -2,36 +2,50 @@
 import BaseHead from "../components/BaseHead.astro";
 import Navbar from "../components/Navbar.astro";
 
-console.log('This runs in your terminal, not the browser!');
+console.log("This runs in your terminal, not the browser!");
 ---
+
 <html>
-    <BaseHead/>    
+    <BaseHead />
     <body>
-        <Navbar/>
+        <script is:inline src="/public/matter/matter.js"></script>
+        <Navbar />
         <section class="hero">
             <div class="container">
-                <h1>Hasbi Ardianto Pratama</h1>
-                <p>A passionate person who focuses on software development, AI exploration, and technology education.</p>
+                <div class="title-container">
+                    <h1 class="title">Hasbi Ardianto Pratama</h1>
+                </div>
+                <div class="desc-container">
+                    <p class="desc">
+                        A passionate person who focuses on software development, AI
+                        exploration, and technology education.
+                    </p>
+                </div>
             </div>
         </section>
+        <script>
+        </script>
     </body>
 </html>
 <style>
+    :global(body) {
+        position: relative;
+    }
     .hero {
         display: flex;
-        height: 100vh;
     }
     .container {
-        max-width: 700px;
+        max-width: 750px;
         margin: auto;
         padding: 0 20px;
     }
-    h1 {
+    .title {
         text-align: center;
-        font-weight: 500;
-        color: rgb(70, 63, 50)
+        font-size: 50px;
+        font-weight: 700;
+        color: rgb(70, 63, 50);
     }
-    p {
+    .desc {
         text-align: center;
         margin-top: 10px;
         color: rgb(70, 63, 50);

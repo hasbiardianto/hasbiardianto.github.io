@@ -1,10 +1,10 @@
 ---
 
 ---
+
 <div class="navbar">
     <nav>
         <ul>
-            
             <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
         </ul>
@@ -24,15 +24,22 @@
         display: flex;
         justify-content: center;
         padding: 20px 0;
+        background: #e0f7ff;
+        background: linear-gradient(
+            180deg,
+            rgb(245, 245, 245) 0%,
+            rgba(245, 245, 245, 1) 62%,
+            rgba(255, 255, 255, 0) 100%
+        );
     }
     ul {
         list-style: none;
         display: flex;
-        gap: 20px;
+        gap: 40px;
         padding: 0;
     }
     li::after {
-        content: '';
+        content: "";
         display: block;
         width: 0;
         height: 2px;
@@ -45,7 +52,7 @@
     a {
         color: rgb(70, 63, 50);
         text-decoration: none;
-        font-weight: 500;
+        font-weight: 600;
     }
     .hamburger {
         display: none;
@@ -103,14 +110,13 @@
     }
 </style>
 <script>
-const hamburger: Element | null = document.querySelector('.hamburger');
-const nav: Element | null = document.querySelector('nav');
+    const hamburger: Element | null = document.querySelector(".hamburger");
+    const nav: Element | null = document.querySelector("nav");
 
-if (hamburger && nav) {
-    hamburger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-} 
-
+    if (hamburger && nav) {
+        hamburger.addEventListener("click", () => {
+            nav.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+    }
 </script>
