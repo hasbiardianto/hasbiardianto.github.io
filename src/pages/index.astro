@@ -8,7 +8,7 @@ console.log("This runs in your terminal, not the browser!");
 <html>
     <BaseHead />
     <body>
-        <script is:inline src="/public/matter/matter.js"></script>
+        <script is:inline src="/matter/matter.js"></script>
         <Navbar />
         <section class="hero">
             <div class="container">
@@ -17,14 +17,14 @@ console.log("This runs in your terminal, not the browser!");
                 </div>
                 <div class="desc-container">
                     <p class="desc">
-                        A passionate person who focuses on software development, AI
-                        exploration, and technology education.
+                        A passionate person who focuses on software development,
+                        AI exploration, and technology education.
                     </p>
                 </div>
             </div>
         </section>
-        <script>
-        </script>
+        <canvas id="matter-canvas"></canvas>
+        <script src="/src/playground/index.js"></script>
     </body>
 </html>
 <style>
@@ -49,6 +49,14 @@ console.log("This runs in your terminal, not the browser!");
         text-align: center;
         margin-top: 10px;
         color: rgb(70, 63, 50);
+    }
+    canvas {
+        position: sticky;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
+        height: 100vh;
+        border: 1px red dashed;
     }
     ul {
         list-style: none;
