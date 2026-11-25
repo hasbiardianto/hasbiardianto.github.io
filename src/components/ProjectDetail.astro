@@ -1,0 +1,345 @@
+---
+import BaseHead from "./BaseHead.astro";
+import Navbar from "./Navbar.astro";
+
+interface Project {
+    number: string;
+    name: string;
+    category: string;
+    summary: string;
+    overview: string;
+    focus: string[];
+    technologies: string[];
+    imageClass: string;
+    monogram: string;
+    repository?: string;
+    live?: string;
+}
+
+interface Props {
+    project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <BaseHead />
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <Navbar basePath="/" />
+
+        <main id="main" class="project-page">
+            <section class="section-wrap project-intro">
+                <a class="project-back-link" href="/#work">
+                    <span aria-hidden="true">←</span> Back to selected work
+                </a>
+                <div class="project-detail-grid">
+                    <div class="project-heading">
+                        <p class="eyebrow"><span class="section-number">{project.number}</span> {project.category}</p>
+                        <h1>{project.name}<span class="accent-mark">.</span></h1>
+                        <p class="project-summary">{project.summary}</p>
+                        <div class="button-row">
+                            {project.repository && (
+                                <a class="button button-dark" href={project.repository} target="_blank" rel="noreferrer">
+                                    View on GitHub <span aria-hidden="true">↗</span>
+                                </a>
+                            )}
+                            {project.live && (
+                                <a class="button button-dark" href={project.live} target="_blank" rel="noreferrer">
+                                    Open live project <span aria-hidden="true">↗</span>
+                                </a>
+                            )}
+                        </div>
+                    </div>
+
+                    <div class={`card project-detail-art ${project.imageClass}`} role="img" aria-label={`${project.name} abstract project artwork`}>
+                        <span class="eyebrow detail-art-label">Project {project.number} · Visual study</span>
+                        <span class="detail-orbit detail-orbit-outer"></span>
+                        <span class="detail-orbit detail-orbit-inner"></span>
+                        <span class="detail-disc"></span>
+                        <span class="detail-monogram" aria-hidden="true">{project.monogram}</span>
+                        <span class="detail-art-caption">A practical idea,<br />made tangible.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrap project-info" aria-label="Project details">
+                <article class="card project-overview">
+                    <p class="eyebrow">01 — Overview</p>
+                    <h2>About the project</h2>
+                    <p class="body-copy">{project.overview}</p>
+                </article>
+                <article class="card project-focus">
+                    <p class="eyebrow">02 — Focus</p>
+                    <h2>Areas of work</h2>
+                    <ul>
+                        {project.focus.map((item, index) => (
+                            <li><span>0{index + 1}</span>{item}</li>
+                        ))}
+                    </ul>
+                </article>
+                <article class="card project-stack">
+                    <p class="eyebrow">03 — Tools</p>
+                    <h2>Technologies</h2>
+                    <ul class="tag-list">
+                        {project.technologies.map((technology) => <li>{technology}</li>)}
+                    </ul>
+                </article>
+            </section>
+
+            <section class="section-wrap project-end">
+                <a class="project-back-link" href="/#work">
+                    <span aria-hidden="true">←</span> Explore more projects
+                </a>
+                <a class="project-next-link" href="/#contact">Have a project in mind? <span aria-hidden="true">↗</span></a>
+            </section>
+        </main>
+    </body>
+</html>
+
+<style>
+    .project-intro {
+        padding-top: 37px;
+    }
+
+    .project-back-link,
+    .project-next-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: #67665f;
+        font-family: var(--body);
+        font-size: 11px;
+        font-weight: 500;
+        transition: color 180ms ease;
+    }
+
+    .project-back-link:hover,
+    .project-next-link:hover {
+        color: var(--accent);
+    }
+
+    .project-detail-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 14px;
+        margin-top: 22px;
+    }
+
+    .project-heading {
+        display: flex;
+        min-height: 390px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: clamp(30px, 5vw, 66px);
+        border: 1px solid var(--line);
+        background: var(--paper-deep);
+    }
+
+    .project-heading h1 {
+        max-width: 650px;
+        margin: 30px 0 17px;
+        font-family: var(--heading);
+        font-size: clamp(48px, 6.7vw, 88px);
+        font-weight: 700;
+        letter-spacing: -0.065em;
+        line-height: 0.97;
+    }
+
+    .project-summary {
+        max-width: 520px;
+        margin: 0;
+        color: #64635d;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .project-heading .button-row {
+        margin-top: 25px;
+    }
+
+    .project-detail-art {
+        display: grid;
+        min-height: 390px;
+        place-items: center;
+        overflow: hidden;
+        isolation: isolate;
+    }
+
+    .mentari-art {
+        background: #d7ddcb;
+    }
+
+    .taskflow-art {
+        background: #e5d9cd;
+    }
+
+    .detail-art-label {
+        position: absolute;
+        z-index: 1;
+        top: 21px;
+        left: 22px;
+    }
+
+    .detail-orbit {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        width: min(74%, 430px);
+        aspect-ratio: 1;
+        transform: translate(-50%, -50%);
+        border: 1px solid rgb(41 42 39 / 30%);
+        border-radius: 50%;
+    }
+
+    .detail-orbit-inner {
+        width: min(52%, 300px);
+    }
+
+    .detail-disc {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        width: min(31%, 170px);
+        aspect-ratio: 1;
+        transform: translate(-50%, -50%);
+        border: 1px solid rgb(41 42 39 / 23%);
+        border-radius: 50%;
+        background: rgb(251 250 246 / 31%);
+    }
+
+    .mentari-art .detail-disc {
+        background: rgb(111 133 102 / 22%);
+    }
+
+    .taskflow-art .detail-disc {
+        background: rgb(201 75 52 / 14%);
+    }
+
+    .detail-monogram {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--heading);
+        font-size: clamp(48px, 7vw, 82px);
+        font-weight: 700;
+        letter-spacing: -0.08em;
+    }
+
+    .detail-art-caption {
+        position: absolute;
+        right: 22px;
+        bottom: 20px;
+        color: #68675f;
+        font-family: var(--body);
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 1.1;
+        text-align: right;
+    }
+
+    .project-info {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 14px;
+        padding-top: 14px;
+    }
+
+    .project-overview,
+    .project-focus,
+    .project-stack {
+        padding: 27px 30px;
+    }
+
+    .project-overview {
+        grid-row: span 2;
+        min-height: 275px;
+        padding: clamp(28px, 4vw, 52px);
+    }
+
+    .project-info h2 {
+        margin: 25px 0 13px;
+        font-family: var(--heading);
+        font-size: clamp(25px, 3vw, 37px);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+    }
+
+    .project-focus ul {
+        display: grid;
+        gap: 10px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .project-focus li {
+        display: flex;
+        gap: 11px;
+        color: #5e5d56;
+        font-size: 12px;
+    }
+
+    .project-focus li span {
+        color: var(--accent);
+        font-size: 9px;
+    }
+
+    .project-stack .tag-list {
+        margin-top: 17px;
+    }
+
+    .project-end {
+        display: flex;
+        min-height: 94px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 1px solid var(--line);
+    }
+
+    @media (max-width: 720px) {
+        .project-detail-grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .project-heading {
+            min-height: 320px;
+            padding: 30px 24px;
+        }
+
+        .project-heading h1 {
+            font-size: clamp(48px, 12vw, 70px);
+        }
+
+        .project-detail-art {
+            min-height: 300px;
+        }
+
+        .project-info {
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding-top: 10px;
+        }
+
+        .project-overview {
+            grid-row: auto;
+            min-height: 0;
+        }
+
+        .project-overview,
+        .project-focus,
+        .project-stack {
+            padding: 24px 21px;
+        }
+
+        .project-end {
+            min-height: 80px;
+        }
+    }
+</style>

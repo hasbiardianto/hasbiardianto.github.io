@@ -2,80 +2,346 @@
 import BaseHead from "../components/BaseHead.astro";
 import Navbar from "../components/Navbar.astro";
 
-console.log("This runs in your terminal, not the browser!");
+const projects = [
+    {
+        number: "01",
+        name: "Yayasan Mentari Sehat Indonesia",
+        category: "Community · Web application",
+        description:
+            "A Laravel-based application built to support the practical work of a community health foundation, with backend implementation at its core.",
+        technologies: ["Laravel", "PHP", "MySQL"],
+        imageClass: "mentari-art",
+        monogram: "MSI",
+        page: "/projects/mentari-sehat/",
+        repository: "https://github.com/hasbiardianto/web-msi-demak",
+    },
+    {
+        number: "02",
+        name: "TaskFlow",
+        category: "Productivity · Project management",
+        description:
+            "A project management board focused on making everyday task planning clear, approachable, and easy to navigate.",
+        technologies: ["Frontend", "Interface design"],
+        imageClass: "taskflow-art",
+        monogram: "TF",
+        page: "/projects/taskflow/",
+        live: "https://taskflow-project-management-board.vercel.app",
+    },
+];
+
+const stack = [
+    { label: "Backend", items: ["PHP", "Laravel", "CodeIgniter", "Python"] },
+    { label: "Frontend", items: ["JavaScript", "TypeScript", "Vue.js", "React"] },
+    { label: "Data", items: ["MySQL", "Relational databases"] },
+    { label: "Tools", items: ["Git", "GitHub", "REST API"] },
+];
+
+const github = "https://github.com/hasbiardianto";
 ---
 
-<html>
+<!doctype html>
+<html lang="en">
     <BaseHead />
     <body>
-        <script is:inline src="/matter/matter.js"></script>
+        <a class="skip-link" href="#main">Skip to content</a>
         <Navbar />
-        <section class="hero">
-            <div class="container">
-                <div class="title-container">
-                    <h1 class="title">Hasbi Ardianto Pratama</h1>
+
+        <main id="main">
+            <section class="intro section-wrap" id="home" aria-labelledby="intro-title">
+                <div class="intro-kicker">
+                    <span class="eyebrow"><span class="status-dot"></span> Developer · Educator</span>
+                    <span class="eyebrow intro-location">Based in Semarang, Indonesia</span>
                 </div>
-                <div class="desc-container">
-                    <p class="desc">
-                        A passionate person who focuses on software development,
-                        AI exploration, and technology education.
-                    </p>
+
+                <div class="bento-grid hero-grid">
+                    <article class="card hero-copy">
+                        <p class="eyebrow">A thoughtful approach to the web</p>
+                        <h1 id="intro-title">Hasbi<br />Ardianto<span class="accent-mark">.</span></h1>
+                        <div class="hero-bottom">
+                            <p class="role">Full-Stack Developer <span>/</span> Software Engineer</p>
+                            <p class="intro-text">
+                                I build useful digital products with care—from solving real-world
+                                problems to shaping the details that make software a pleasure to use.
+                            </p>
+                            <div class="button-row">
+                                <a class="button button-dark" href="#work">
+                                    View projects <span aria-hidden="true">↘</span>
+                                </a>
+                                <a class="button button-light" href="#contact">
+                                    Contact me <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
+                        </div>
+                        <span class="card-index">01 — Portfolio</span>
+                    </article>
+
+                    <article class="card hero-art" aria-label="Personal introduction">
+                        <div class="art-caption">
+                            <span class="eyebrow">Independent practice</span>
+                            <span class="art-coordinate">06°58′ S<br />110°25′ E</span>
+                        </div>
+                        <div class="art-orbit orbit-one"></div>
+                        <div class="art-orbit orbit-two"></div>
+                        <div class="art-sun"></div>
+                        <div class="art-cross cross-one"></div>
+                        <div class="art-cross cross-two"></div>
+                        <div class="art-word">Ideas<br />made<br />useful<span>.</span></div>
+                        <div class="art-footer">
+                            <span>Ideas into<br />everyday tools.</span>
+                            <span class="art-seal" aria-hidden="true">HA</span>
+                        </div>
+                    </article>
+
+                    <a class="card index-card about-link" href="#about">
+                        <span class="eyebrow">A little about me</span>
+                        <span class="index-card-title">People first.<br />Good systems, always.</span>
+                        <span class="round-arrow" aria-hidden="true">↘</span>
+                        <span class="card-index">02 — About</span>
+                    </a>
+
+                    <a class="card index-card work-link" href="#work">
+                        <span class="eyebrow">Selected work</span>
+                        <span class="index-card-title">Practical ideas,<br />made tangible.</span>
+                        <span class="work-count">02 <span>projects</span></span>
+                        <span class="card-index">03 — Projects</span>
+                    </a>
                 </div>
-            </div>
-        </section>
-        <canvas id="matter-canvas"></canvas>
-        <script src="/src/playground/index.js"></script>
+                <div class="scroll-note"><span></span> Scroll to explore</div>
+            </section>
+
+            <section class="section-wrap content-section" id="about" aria-labelledby="about-title">
+                <div class="section-heading">
+                    <p class="eyebrow"><span class="section-number">01</span> About</p>
+                    <span class="section-aside">Curiosity, craft &amp; a practical mindset</span>
+                </div>
+                <div class="bento-grid about-grid">
+                    <article class="card about-main">
+                        <p class="eyebrow">A developer who likes to make things make sense</p>
+                        <h2 id="about-title">
+                            Technology is at its best when it <span>helps people get somewhere.</span>
+                        </h2>
+                        <p class="body-copy">
+                            I’m an Informatics graduate who enjoys turning complex needs into clear,
+                            maintainable software. My experience spans web development and technical
+                            education—work that has taught me to listen carefully, solve thoughtfully,
+                            and keep the people using a product in view.
+                        </p>
+                    </article>
+                    <article class="card education-card">
+                        <span class="eyebrow">Education</span>
+                        <div class="education-mark" aria-hidden="true">学</div>
+                        <div>
+                            <p class="education-degree">Bachelor’s Degree</p>
+                            <p class="education-subject">Informatics</p>
+                        </div>
+                        <div class="gpa">
+                            <span>Grade point average</span>
+                            <strong>3.64</strong>
+                        </div>
+                        <span class="card-index">Semarang, Indonesia</span>
+                    </article>
+                    <article class="card values-card">
+                        <span class="eyebrow">How I approach the work</span>
+                        <ul>
+                            <li><span>01</span> Understand the people and the problem.</li>
+                            <li><span>02</span> Keep the solution useful and maintainable.</li>
+                            <li><span>03</span> Sweat the details that make it feel right.</li>
+                        </ul>
+                        <span class="card-index">Principles, not shortcuts</span>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section-wrap content-section" id="work" aria-labelledby="work-title">
+                <div class="section-heading">
+                    <p class="eyebrow"><span class="section-number">02</span> Selected projects</p>
+                    <span class="section-aside">A small selection of things made with purpose</span>
+                </div>
+                <h2 class="section-title" id="work-title">Work worth a closer look<span class="accent-mark">.</span></h2>
+                <div class="project-grid">
+                    {projects.map((project) => (
+                        <article class="card project-card">
+                            <div class={`project-art ${project.imageClass}`} aria-label={`${project.name} image placeholder`}>
+                                <div class="project-art-top">
+                                    <span class="eyebrow">Project {project.number}</span>
+                                    <span class="art-label">Project identity</span>
+                                </div>
+                                <div class="placeholder-composition" aria-hidden="true">
+                                    <span class="placeholder-orbit"></span>
+                                    <span class="placeholder-disc"></span>
+                                    <span class="placeholder-line"></span>
+                                    <span class="placeholder-monogram">{project.monogram}</span>
+                                </div>
+                                <div class="project-art-bottom">
+                                    <span>Abstract visual study</span>
+                                    <span>{project.category}</span>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <div class="project-title-line">
+                                    <div>
+                                        <p class="eyebrow">{project.category}</p>
+                                        <h3>{project.name}</h3>
+                                    </div>
+                                    <span class="project-number">{project.number}</span>
+                                </div>
+                                <p class="project-description">{project.description}</p>
+                                <ul class="tag-list" aria-label="Technologies">
+                                    {project.technologies.map((technology) => <li>{technology}</li>)}
+                                </ul>
+                                <div class="project-links">
+                                    <a href={project.page}>
+                                        Case study <span aria-hidden="true">↗</span>
+                                    </a>
+                                    {project.repository && (
+                                        <a href={project.repository} target="_blank" rel="noreferrer">
+                                            GitHub <span aria-hidden="true">↗</span>
+                                        </a>
+                                    )}
+                                    {project.live && (
+                                        <a href={project.live} target="_blank" rel="noreferrer">
+                                            Live demo <span aria-hidden="true">↗</span>
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            <section class="section-wrap content-section" id="practice" aria-labelledby="practice-title">
+                <div class="section-heading">
+                    <p class="eyebrow"><span class="section-number">03</span> Practice</p>
+                    <span class="section-aside">Tools in the hands-on toolkit</span>
+                </div>
+                <div class="bento-grid practice-grid">
+                    <article class="card practice-intro">
+                        <p class="eyebrow">Technology, thoughtfully applied</p>
+                        <h2 id="practice-title">The right tool<br />for the real problem<span class="accent-mark">.</span></h2>
+                        <p class="body-copy">A practical stack for building considered, dependable applications.</p>
+                        <span class="card-index">Learning is part of the craft</span>
+                    </article>
+                    <div class="stack-grid">
+                        {stack.map((group, index) => (
+                            <article class="card stack-card">
+                                <span class="stack-number">0{index + 1}</span>
+                                <h3>{group.label}</h3>
+                                <ul class="tag-list">
+                                    {group.items.map((item) => <li>{item}</li>)}
+                                </ul>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-wrap content-section" id="experience" aria-labelledby="experience-title">
+                <div class="section-heading">
+                    <p class="eyebrow"><span class="section-number">04</span> Experience</p>
+                    <span class="section-aside">Technology meets teaching</span>
+                </div>
+                <article class="card experience-card">
+                    <div class="experience-aside">
+                        <span class="eyebrow">Education &amp; leadership</span>
+                        <span class="experience-seal" aria-hidden="true">教</span>
+                        <span class="eyebrow">Semarang, Indonesia</span>
+                    </div>
+                    <div class="experience-content">
+                        <p class="eyebrow">Timedoor Academy Semarang</p>
+                        <h2 id="experience-title">Teacher Leader</h2>
+                        <p class="body-copy">
+                            I lead and mentor teachers, deliver technical training, and help improve
+                            the quality of our classes. Alongside the education work, I build
+                            administrative tools, automate workflows, create internal tracking
+                            systems, and put student projects on display.
+                        </p>
+                        <div class="experience-skills">
+                            <span>Technical leadership</span>
+                            <span>Mentoring &amp; training</span>
+                            <span>Workflow automation</span>
+                            <span>Internal tools</span>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="section-wrap contact-wrap" id="contact" aria-labelledby="contact-title">
+                <div class="section-heading">
+                    <p class="eyebrow"><span class="section-number">05</span> Get in touch</p>
+                    <span class="section-aside">Open to meaningful collaboration</span>
+                </div>
+                <div class="card contact-card">
+                    <div class="contact-copy">
+                        <p class="eyebrow">Have something useful to build?</p>
+                        <h2 id="contact-title">Let’s make<br />it matter<span class="accent-mark">.</span></h2>
+                        <p class="body-copy">I’d love to hear what you’re working on.</p>
+                    </div>
+                    <div class="contact-actions">
+                        <a class="button button-dark" href={`${github}?tab=repositories`} target="_blank" rel="noreferrer">
+                            Find me on GitHub <span aria-hidden="true">↗</span>
+                        </a>
+                        <a class="contact-handle" href={github} target="_blank" rel="noreferrer">
+                            github.com/hasbiardianto <span aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                    <span class="contact-decoration" aria-hidden="true">HA.</span>
+                </div>
+                <footer class="site-footer">
+                    <a class="footer-brand" href="#home">Hasbi Ardianto<span>.</span></a>
+                    <span>Made with intention · Semarang, Indonesia</span>
+                    <a href="#home">Back to top ↑</a>
+                </footer>
+            </section>
+        </main>
+
+        <script>
+            const revealItems = document.querySelectorAll(".card");
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            if ("IntersectionObserver" in window && !reduceMotion) {
+                revealItems.forEach((item, index) => {
+                    item.classList.add("reveal-ready");
+                    item.style.setProperty("--reveal-delay", `${(index % 4) * 70}ms`);
+                });
+
+                const revealObserver = new IntersectionObserver(
+                    (entries, observer) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("is-visible");
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    { threshold: 0.12 },
+                );
+
+                revealItems.forEach((item) => revealObserver.observe(item));
+            }
+
+            const sections = document.querySelectorAll("main section[id]");
+            const navLinks = document.querySelectorAll(".site-nav a[href^='#']");
+
+            if ("IntersectionObserver" in window) {
+                const sectionObserver = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (!entry.isIntersecting) return;
+                            navLinks.forEach((link) => {
+                                if (link.getAttribute("href") === `#${entry.target.id}`) {
+                                    link.setAttribute("aria-current", "location");
+                                } else {
+                                    link.removeAttribute("aria-current");
+                                }
+                            });
+                        });
+                    },
+                    { rootMargin: "-35% 0px -55% 0px" },
+                );
+
+                sections.forEach((section) => sectionObserver.observe(section));
+            }
+        </script>
     </body>
 </html>
-<style>
-    :global(body) {
-        position: relative;
-    }
-    .hero {
-        display: flex;
-    }
-    .container {
-        max-width: 750px;
-        margin: auto;
-        padding: 0 20px;
-    }
-    .title {
-        text-align: center;
-        font-size: 50px;
-        font-weight: 700;
-        color: rgb(70, 63, 50);
-    }
-    .desc {
-        text-align: center;
-        margin-top: 10px;
-        color: rgb(70, 63, 50);
-    }
-    canvas {
-        position: sticky;
-        left: 0;
-        bottom: 0;
-        z-index: -1;
-        height: 100vh;
-        border: 1px red dashed;
-    }
-    ul {
-        list-style: none;
-    }
-    li {
-        border: 1px solid rgb(70, 63, 50);
-        border-radius: 5px;
-        background-color: #fefefe;
-        display: inline-block;
-        padding: 10px 20px;
-        margin: 10px 0;
-    }
-    a {
-        color: rgb(70, 63, 50);
-        text-decoration: none;
-        font-weight: 500;
-    }
-    p {
-        font-size: 1.2rem;
-        color: rgb(70, 63, 50);
-    }
-</style>
